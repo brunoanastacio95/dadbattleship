@@ -1,0 +1,24 @@
+<nav class="navbar navbar-light">
+    <a class="navbar-brand" routerLink="/home">Battleship Game</a>
+    <ul class="nav navbar-nav">
+
+        <li *ngIf="!auth.isLogged()" class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+
+        <li *ngIf="!auth.isLogged()" class="nav-item">
+            <a class="nav-link" routerLink="/register">Register</a>
+        </li>
+
+        <li *ngIf="auth.isLogged()" class="nav-item">
+            <a class="nav-link" routerLink="/home" (click)="logout()">logout</a>
+        </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+        <a class="navbar-brand" *ngIf="auth.isLogged()"> Welcome,   {{ auth.getCurrentUser().username }}</a>
+    </ul>
+
+</nav>
+
+<router-outlet></router-outlet>

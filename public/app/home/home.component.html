@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <h1>DAD - Project</h1>
+        <h1>Welcome to battleship</h1>
+    </div>
+
+    <div class="row">
+        <div *ngIf="auth.isLogged()" class="col-md-3">
+            <hr>
+            <chat-control></chat-control>
+            <notification-panel></notification-panel>
+        </div>
+
+        <div *ngIf="auth.isLogged()" class="col-md-9">
+            <lobby></lobby>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div>
+            <top10-control></top10-control>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container">
+  <h1>Register in battleship game</h1>
+  <hr>
+  <h1 *ngIf="registedWithSuccess" class="alert alert-success">{{registerMessage}}</h1>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form class="form-register" #registerForm="ngForm" (ngSubmit)="register()">
+
+        <div class="form-group">
+          <label for="username" class="sr-only">Username</label>
+          <input name="username" type="text" class="form-control" placeholder="Username" required minlength="8" maxlength="16" [(ngModel)]="auxUser.username"
+            #username="ngModel">
+          <small class="alert-danger" [hidden]="username.valid || (username.pristine && !registerForm.submitted)"> min 8 and max 16 characters </small>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="sr-only">Password</label>
+          <input name="password" type="password" class="form-control" placeholder="Password" required minlength="8" maxlength="16" [(ngModel)]="auxUser.password"
+            #password="ngModel">
+            <small class="alert-danger" [hidden]="password.valid || (password.pristine && !registerForm.submitted)"> min 8 and max 16 characters </small>
+        </div>
+
+        <div class="form-group">
+          <label for="passwordConfirmation" class="sr-only">Password Confirmation:</label>
+          <input name="passwordConfirmation" type="password" class="form-control" placeholder="Password confirmation" required minlength="8" maxlength="16" [(ngModel)]="auxUser.passwordConfirmation"
+            #passwordConfirmation="ngModel">
+            <small class="alert-danger" [hidden]="passwordConfirmation.valid || (passwordConfirmation.pristine && !registerForm.submitted)"> min 8 and max 16 characters </small>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="sr-only">Email:</label>
+          <input class="form-control" name="email" type="email" placeholder="xxxxxxx@abc.com" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+            [(ngModel)]="auxUser.email" #email="ngModel">
+          <small class="alert-danger" [hidden]="email.valid || (email.pristine && !registerForm.submitted)">
+              Email is required and format should be <i>andre@ipleiria.pt</i>.
+          </small>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!registerForm.form.valid">Register</button>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <hr>
+      <div *ngIf="error" class="alert alert-danger">
+        <li> {{errorMessage}} </li>
+      </div>
+    </div>
+  </div>
+
+</div>

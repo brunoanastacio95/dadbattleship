@@ -1,0 +1,64 @@
+<!--<div class="board" *ngIf="elementos">
+     <div class="game-cell" *ngFor="let elemento of elementos; let i = index"  (click)="clickElemento(i)" [style.background-color]="getColor(elemento)">
+    </div>
+</div>-->
+
+<div class="container">
+    <h1>BOARD</h1>
+    <h2 style="color:red">{{this.error}}</h2>
+<div *ngIf="!imReady">
+    Tipo Navio:
+    <select [(ngModel)]="tipo">  
+      <option value=0 >Porta-Aviões</option>
+      <option value=1>Couraçado</option>
+      <option value=2>Cruzador</option>
+      <option value=3>Contra-Torpedeiro</option>
+      <option value=4>Submarino</option>
+    </select> Orientação:
+    <select [(ngModel)]="orient">
+      <option value=0 >Normal</option>
+      <option value=1>Roda 90º</option>
+      <option value=2>Roda 180º</option>
+      <option value=3>Roda 270º</option>  
+  </select> Linha (A..J): <input name="linha" required [(ngModel)]="linha"> Coluna (1..10): <input name="coluna" required
+        [(ngModel)]="coluna">
+
+    <div>
+        <button class="btn btn-primary" (click)="add()">Add</button>
+        <button class="btn btn-danger" (click)="clean()">Limpar</button>
+    </div>
+</div>
+
+
+<div class="board" *ngIf="elementos">
+    <div class="game-cell" *ngFor="let elemento of elementos; let i = index" [style.background-color]="getColor(elemento)">
+    </div>
+</div>
+
+
+<div>
+    <button class="btn btn-warning" [disabled]="imReady" (click)="ready()">Pronto a jogar</button>
+</div>
+
+<div class="board" *ngIf="temAdversario">
+    <div *ngFor="let n of adversarios; let i = index">
+        <h3>Player: {{ n }}</h3>
+        <div class="game-cell" *ngFor="let elemento of tabuleirosAtaque[i].celulas" (click)="disparar(elemento, n)" [style.background-color]="getColor(elemento)">
+        </div>
+    </div>
+</div>
+<hr>
+
+
+<chatroom></chatroom>
+<h3>Chat history:</h3>
+<div class="scrollRoom">
+    <p *ngFor="let m of chatChannel">
+        <li>{{m}}</li>
+    </p>
+</div>
+<div>
+    <notificationsRoom></notificationsRoom>
+</div>
+
+</div>

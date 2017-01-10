@@ -1,0 +1,11 @@
+BRUNO ANASTACIO 2140255
+BRUNO FONSECA 2130131
+DANIEL GOMES 2141428
+
+Jogo - OK
+Top Ten - OK
+Identificação e Autorização - OK
+Histórico de Jogos – NÃO implementado
+Game Lobby – OK
+Jogos Múltiplos - NÃO implementado
+Outras Funcionalidades – Chat Rooms

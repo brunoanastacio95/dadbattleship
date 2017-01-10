@@ -1,0 +1,10 @@
+<form #messageForm="ngForm">
+<div class="form-group" >
+        <div class="input-group">
+                <input  class="form-control" name="message" placeholder="Type a message"   [(ngModel)]="message">
+                <span class="input-group-btn">
+             <button class="btn btn-primary"  [disabled]="!messageForm.form.valid" (click)="send()">Send</button>
+</span>
+</div>
+</div>
+</form>
